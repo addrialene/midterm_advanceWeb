@@ -250,21 +250,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editSubject"])) {
             background-color: #c51162;
         }
 
-        .breadcrumb {
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #7b1fa2;
-        }
-
-        .breadcrumb a {
-            color: #d81b60;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
         .dashboard {
             display: list-item;
             gap: 20px;
@@ -299,9 +284,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editSubject"])) {
     <?php if ($isLoggedIn): ?>
         <!-- Dashboard Section -->
         <?php if ($currentPage == 'dashboard'): ?>
-            <div class="breadcrumb">
-                <a href="?page=dashboard">Dashboard</a>
-            </div>
             <div class="dashboard-header">
                 <h2>Welcome to the System: <?php echo htmlspecialchars($loggedInUser); ?></h2>
                 <form method="post" action="">
@@ -317,18 +299,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editSubject"])) {
                 </div>
 
                 <div class="dashboard-section">
-                    <h3>Register a New Student</h3>
-                    <p>This section allows you to register a new student in the system. Click the button below to proceed with the registration process.</p>
-                    <a href="reg_stud.php"><button>Register</button></a>
+    <h3>Register a New Student</h3>
+    <p>This section allows you to register a new student in the system. Click the button below to proceed with the registration process.</p>
+    <a href="reg_stud.php"><button>Register</button></a>
+</div>
                 </div>
             </div>
         <?php endif; ?>
 
         <!-- Add Subject Form Section -->
         <?php if ($currentPage == 'addSubject'): ?>
-            <div class="breadcrumb">
-                <a href="?page=dashboard">Dashboard</a> &gt; <a href="?page=addSubject">Add a Subject</a>
-            </div>
             <div class="add-subject-form">
                 <h3>Add a Subject</h3>
                 <?php if (!empty($errorMessages)): ?>
@@ -411,14 +391,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["editSubject"])) {
                     </ul>
                 </div>
             <?php endif; ?>
-            <form method="post" action="">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" required>
 
-                <label for="password">Password:</label>
+            <form method="post" action="">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+
+                <label for="password">Password</label>
                 <input type="password" name="password" id="password" required>
 
                 <button type="submit" name="login">Login</button>
+
+
             </form>
         </div>
     <?php endif; ?>
